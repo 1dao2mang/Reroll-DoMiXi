@@ -1,0 +1,80 @@
+.reel-container {
+  width: 100%;
+  max-width: 800px;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-color);
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.reel-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.reel-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Will be transformed via inline styles */
+}
+
+.reel-item-wrapper {
+  flex: 0 0 auto;
+}
+
+/* Center marker */
+.reel-win-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--text-primary);
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 0.5;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.reel-win-line::before, .reel-win-line::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.reel-win-line::before { top: -6px; }
+.reel-win-line::after { bottom: -6px; }
+
+/* Edge fades for depth */
+.reel-fade-left, .reel-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.reel-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-color) 0%, rgba(0,0,0,0) 100%);
+}
+
+.reel-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-color) 0%, rgba(0,0,0,0) 100%);
+}

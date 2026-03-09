@@ -1,0 +1,83 @@
+.item-card {
+  width: 180px;
+  height: 240px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.item-image, .item-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto; /* Allow clicking play */
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+  z-index: 2;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-rarity {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+/* Rarity Accents (Minimal) */
+.rarity-common .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-common); }
+.rarity-uncommon .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-uncommon); }
+.rarity-rare .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-rare); }
+.rarity-mythical .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-mythical); }
+.rarity-legendary .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-legendary); }
+.rarity-ancient .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-ancient); }
+.rarity-exceed .card-overlay { box-shadow: inset 0 -2px 0 var(--rarity-exceed); }
+
+.rarity-text-common { color: var(--rarity-common); }
+.rarity-text-uncommon { color: var(--rarity-uncommon); }
+.rarity-text-rare { color: var(--rarity-rare); }
+.rarity-text-mythical { color: var(--rarity-mythical); }
+.rarity-text-legendary { color: var(--rarity-legendary); }
+.rarity-text-ancient { color: var(--rarity-ancient); }
+.rarity-text-exceed { color: var(--rarity-exceed); }
